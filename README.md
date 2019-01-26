@@ -43,6 +43,8 @@ There was some interesting minor variance (6%) between calling `T.F()`, ranging 
 
 Calls to the struct-typed pointer-receiver function were very consistent at 0.60ns/op.
 
+For a bit more context in what the CPU is doing even outside of Go's bytecode, be sure to check out [latency numbers every programmer should know](https://gist.github.com/jboner/2841832).
+
 ### Conclusion
 In practice, if your usage is in a [hot spot](https://en.wikipedia.org/wiki/Hot_spot_(computer_programming)), you'll want to call functions on struct-typed variables. The performance impact of the function having a pointer receiver to the struct will depend on what the function is doing. For these no-op benchmarks, they performed equally.
 
