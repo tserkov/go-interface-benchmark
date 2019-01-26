@@ -3,7 +3,7 @@ After being challenged by a colleague on the performance impacts of using Go's t
 
 ### Results
 As run on my test machine, with an AMD Athlon II X2 270 @ 3.4GHz, using Go 1.11.
-```console
+```
 tserkov@github:~$ go version
 go version go1.11 linux/amd64
 tserkov@github:~$ go test -v -bench=. -benchmem
@@ -46,6 +46,4 @@ Calls to the struct-typed pointer-receiver function were very consistent at 0.60
 ### Conclusion
 In practice, if your usage is in a [hot spot](https://en.wikipedia.org/wiki/Hot_spot_(computer_programming)), you'll want to call functions on struct-typed variables. The performance impact of the function having a pointer receiver to the struct will depend on what the function is doing. For these no-op benchmarks, they performed equally.
 
-However, if your usage is _not_ in a hot spot, keep in mind that a nanosecond (ns) is _1 billionth of a second_. So even with the worst-case scenario of calling non-pointer-receiver function on an interface-typed variable, the cost is only ~4 billionths of a second. Don't let overzealous or premature optimization prevent your package from becoming readable or testable.
-
-#### License
+However, if your usage is _not_ in a hot spot, keep in mind that a nanosecond (ns) is _1 billionth of a second_. So even with the worst-case scenario of calling a non-pointer-receiver function on an interface-typed variable, the cost is only ~4 billionths of a second. Don't let overzealous or premature optimization prevent your package from becoming readable or testable.
