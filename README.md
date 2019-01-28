@@ -33,6 +33,7 @@ ok      github.com/tserkov/go-interface-benchmark       32.347s
 For allocations, we can see that allocating structs into an interfaced-typed variable is slower.
 
 As for actual function calls, well...
+
 | Name | Variable Type | Function Receiver | Time |
 | - | - | - | - |
 | BenchmarkWithoutNonPtrFunc | `struct` | Non-pointer | 2.06ns |
