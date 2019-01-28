@@ -2,5 +2,8 @@ package main
 
 type T struct{}
 
-func (t T) F()     {}
+//go:noinline
+func (t T) F() {}
+
+//go:noinline
 func (t *T) PtrF() {}

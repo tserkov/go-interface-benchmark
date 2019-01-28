@@ -13,6 +13,7 @@ func BenchmarkWithoutPtrAlloc(b *testing.B) {
 	}
 }
 
+// *struct; non-pointer
 func BenchmarkWithoutPtrFunc(b *testing.B) {
 	var t *T = &T{}
 
@@ -23,6 +24,7 @@ func BenchmarkWithoutPtrFunc(b *testing.B) {
 	}
 }
 
+// *struct; pointer
 func BenchmarkWithoutPtrPtrFunc(b *testing.B) {
 	var t *T = &T{}
 
@@ -42,6 +44,7 @@ func BenchmarkWithoutNonPtrAlloc(b *testing.B) {
 	}
 }
 
+// struct; non-pointer
 func BenchmarkWithoutNonPtrFunc(b *testing.B) {
 	var t T = T{}
 
@@ -52,6 +55,7 @@ func BenchmarkWithoutNonPtrFunc(b *testing.B) {
 	}
 }
 
+// struct; pointer
 func BenchmarkWithoutNonPtrPtrFunc(b *testing.B) {
 	var t T = T{}
 
